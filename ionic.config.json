@@ -1,0 +1,7 @@
+{
+  "name": "FE25SummerProject",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
