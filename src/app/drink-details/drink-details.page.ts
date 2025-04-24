@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonBackButton, IonItem, IonLabel, IonToggle } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonBackButton, IonItem, IonLabel, IonToggle, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { DataService } from '../DataService/data.service';
+import { TextToSpeech } from '@capacitor-community/text-to-speech';
 
 
 interface Drink {// Interface for holding info from HttpClient have | null as not all drinks fit all parameters
@@ -71,7 +72,7 @@ interface Drink {// Interface for holding info from HttpClient have | null as no
   templateUrl: './drink-details.page.html',
   styleUrls: ['./drink-details.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonBackButton, IonItem, IonLabel, IonToggle]
+  imports: [IonIcon, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonBackButton, IonItem, IonLabel, IonToggle]
 })
 export class DrinkDetailsPage implements OnInit {
 
@@ -133,5 +134,25 @@ export class DrinkDetailsPage implements OnInit {
         console.error('Error toggling favorite status:', error);
       }
     }
+
+    async readInstructions() {
+      if (this.fetchedDrink && this.fetchedDrink.strInstructions) {
+          console.log('Attempting to read instructions...');
+          try {
+              await TextToSpeech.speak({
+                  text: this.fetchedDrink.strInstructions,
+                  lang: 'en-US', // specify language code
+                  rate: 1.0,     //  speech rate (default is 1.0)
+                  pitch: 1.0     // speech pitch (default is 1.0)
+              });
+              console.log('TextToSpeech.speak successful');
+          } catch (error) {
+              console.error('Error using TextToSpeech:', error);
+              // Handle errors, e.g., show a toast message
+          }
+      } else {
+          console.warn('No instructions available to read.');
+      }
+  }
 
 }

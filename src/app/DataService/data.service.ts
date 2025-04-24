@@ -4,11 +4,74 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Storage } from '@ionic/storage-angular';
+import { TextToSpeech } from '@capacitor-community/text-to-speech';
+
+interface Drink {// Interface for holding info from HttpClient have | null as not all drinks fit all parameters
+  idDrink: string;
+  strDrink: string; 
+  strDrinkAlternate: string | null;
+  strTags: string | null;
+  strVideo: string | null;
+  strCategory: string | null; 
+  strIBA: string | null; 
+  strAlcoholic: string | null; 
+  strGlass: string | null; 
+  // Instructions in a few different languages
+  strInstructions: string | null;
+  strInstructionsES: string | null; 
+  strInstructionsDE: string | null; 
+  strInstructionsFR: string | null; 
+  strInstructionsIT: string | null; 
+  
+
+  strDrinkThumb: string | null; 
+
+  // Ingredients (up to 15)
+  strIngredient1: string | null;
+  strIngredient2: string | null;
+  strIngredient3: string | null;
+  strIngredient4: string | null;
+  strIngredient5: string | null;
+  strIngredient6: string | null;
+  strIngredient7: string | null;
+  strIngredient8: string | null;
+  strIngredient9: string | null;
+  strIngredient10: string | null;
+  strIngredient11: string | null;
+  strIngredient12: string | null;
+  strIngredient13: string | null;
+  strIngredient14: string | null;
+  strIngredient15: string | null;
+
+  // Measures (up to 15, corresponding to ingredients)
+  strMeasure1: string | null;
+  strMeasure2: string | null;
+  strMeasure3: string | null;
+  strMeasure4: string | null;
+  strMeasure5: string | null;
+  strMeasure6: string | null;
+  strMeasure7: string | null;
+  strMeasure8: string | null;
+  strMeasure9: string | null;
+  strMeasure10: string | null;
+  strMeasure11: string | null;
+  strMeasure12: string | null;
+  strMeasure13: string | null;
+  strMeasure14: string | null;
+  strMeasure15: string | null;
+
+  strCreativeCommonsConfirmed: string | null; 
+  dateModified: string | null;
+
+}
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
+
+  fetchedDrink: Drink | null = null;
   private _storage: Storage | null = null;
   private favoritesKey = 'favoritedDrinkIds';
   private _storageInitPromise: Promise<void>;
@@ -30,7 +93,7 @@ export class DataService {
     console.log('DataService: Ionic Storage Initialized.');
   }
 
-  // --- Helper to ensure storage is ready ---
+  // Helper to ensure storage is ready 
   private async ensureStorageReady(): Promise<void> {
       // If _storage is null, it means initStorage hasn't completed yet.
       // Await the promise stored in the constructor.
@@ -114,5 +177,25 @@ export class DataService {
     await this._storage!.remove(this.favoritesKey);
     console.log('DataService: All favorites cleared.');
   }
+
+  async readInstructions() {
+    if (this.fetchedDrink && this.fetchedDrink.strInstructions) {
+        console.log('Attempting to read instructions...');
+        try {
+            await TextToSpeech.speak({
+                text: this.fetchedDrink.strInstructions,
+                lang: 'en-US', // specify language code
+                rate: 1.0,     //  speech rate (default is 1.0)
+                pitch: 1.0     // speech pitch (default is 1.0)
+            });
+            console.log('TextToSpeech.speak successful');
+        } catch (error) {
+            console.error('Error using TextToSpeech:', error);
+            // Handle errors, e.g., show a toast message
+        }
+    } else {
+        console.warn('No instructions available to read.');
+    }
+}
 
 }

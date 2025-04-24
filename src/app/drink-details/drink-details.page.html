@@ -100,6 +100,10 @@
     <ul>
       <li *ngIf="fetchedDrink.strInstructions">{{fetchedDrink.strInstructions}}</li>
     </ul>
+
+    <ion-button expand="block" (click)="readInstructions()" *ngIf="fetchedDrink?.strInstructions"> 
+      Read Instructions
+  </ion-button>
   </div>
 
   <div *ngIf="!fetchedDrink">
