@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button slot="start" defaultHref="/home"></ion-back-button>
+    <ion-title>Favorites</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">favorites</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngIf="isLoading">
+    <p>Loading favorite drinks. . .</p>
+  </div>
+
+  <ion-list *ngIf="!isLoading && favoriteDrinks.length > 0">
+    <ion-item *ngFor="let drink of favoriteDrinks" [routerLink]="['/drink-details', drink.idDrink]">
+      <!--Loads Drink Thumbnail-->
+      <ion-thumbnail slot="start" *ngIf="drink.strDrinkThumb">
+        <img [src]="drink.strDrinkThumb" [alt]="drink.strDrink">
+      </ion-thumbnail>
+       <!--Drink name-->
+      <ion-label>
+        <h2>{{ drink.strDrink }}</h2>
+      </ion-label>
+      <!--Remove Favorite-->
+      <ion-button slot="end" fill="clear" (click)="removeFavoriteFromList(drink.idDrink, $event);">
+        <ion-icon name="heart-dislike"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

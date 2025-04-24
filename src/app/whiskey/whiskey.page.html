@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button slot="start" defaultHref="/home"></ion-back-button>
+    <ion-title>Whiskey</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Whiskey</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <h1>Whiskey Cocktails</h1>
+  <div *ngIf="fetchedDrink">
+    <img src="https://www.thecocktaildb.com/images/media/drink/hbkfsh1589574990.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '11004']">Whiskey Sour</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/squyyq1439907312.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '17206']">Mint Julep</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '11001']">Old Fashioned</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/yk70e31606771240.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '11005']">Manhattan</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/vvpxwy1439907208.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '12127']">Sazerac</h4>
+  </div>
+</ion-content>

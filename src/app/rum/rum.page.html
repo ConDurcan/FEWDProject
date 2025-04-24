@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button slot="start" defaultHref="/home"></ion-back-button>
+    <ion-title>Rum</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Rum</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <h1>Rum Cocktails</h1>
+  <div *ngIf="fetchedDrink">
+    <img src="https://www.thecocktaildb.com/images/media/drink/metwgh1606770327.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '11000']">Mojito</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/mrz9091589574515.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '11006']">Daiquiri</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/upgsue1668419912.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '17207']">Piña Colada</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/t1tn0s1504374905.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '12127']">Dark 'n' Stormy</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/twyrrp1439907470.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '11690']">Mai Tai</h4>
+  </div>
+</ion-content>
