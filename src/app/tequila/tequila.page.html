@@ -11,4 +11,17 @@
       <ion-title size="large">Tequila</ion-title>
     </ion-toolbar>
   </ion-header>
+  <h1>Tequila Cocktails</h1>
+  <div *ngIf="fetchedDrink">
+    <img src="https://www.thecocktaildb.com/images/media/drink/quqyqp1480879103.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '13621']">Tequila Sunrise</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/samm5j1513706393.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '17253']">Paloma</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/yfhn371504374246.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '17217']">Vampiro</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '11007']">Margarita</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/fwpd0v1614006733.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '178347']">Winter Rita</h4>
+  </div>
 </ion-content>

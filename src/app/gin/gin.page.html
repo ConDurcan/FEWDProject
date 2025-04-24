@@ -11,4 +11,19 @@
       <ion-title size="large">Gin</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <h1>Gin Cocktails</h1>
+  <div *ngIf="fetchedDrink">
+    <img src="https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '11003']">Negroni</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/6ck9yi1589574317.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '11005']">Dry Martini</h4>
+    <img src="https://https://www.thecocktaildb.com/images/media/drink/0clus51606772388.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '11014']">Alexander</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '11055']">Artillery</h4>
+    <img src="https://www.thecocktaildb.com/images/media/drink/7cll921606854636.jpg/medium">
+    <h4 [routerLink]="['/drink-details', '12402']">Tom Collins</h4>
+  </div>
 </ion-content>
+
