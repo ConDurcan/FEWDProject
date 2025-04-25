@@ -1,0 +1,115 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button slot="start" defaultHref="/home"></ion-back-button>
+    <ion-title>Drink-Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">drink-details</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngIf="fetchedDrink">
+    <ion-item>
+      <ion-label>Favorite</ion-label>
+      <ion-toggle slot="end" [checked]="isCurrentDrinkFavorite" (ionChange)="toggleFavorite()"></ion-toggle>
+    </ion-item>
+    
+    <h1>Ingredients</h1>
+    <ul>
+      <li *ngIf="fetchedDrink.strIngredient1">{{fetchedDrink.strIngredient1}}, {{fetchedDrink.strMeasure1}}</li>
+      <li *ngIf="fetchedDrink.strIngredient2">
+        {{fetchedDrink.strMeasure2}} {{fetchedDrink.strIngredient2}}
+      </li>
+    
+      
+      <li *ngIf="fetchedDrink.strIngredient3">
+        {{fetchedDrink.strMeasure3}} {{fetchedDrink.strIngredient3}}
+      </li>
+    
+      
+      <li *ngIf="fetchedDrink.strIngredient4">
+        {{fetchedDrink.strMeasure4}} {{fetchedDrink.strIngredient4}}
+      </li>
+    
+      
+      <li *ngIf="fetchedDrink.strIngredient5">
+        {{fetchedDrink.strMeasure5}} {{fetchedDrink.strIngredient5}}
+      </li>
+    
+      
+      <li *ngIf="fetchedDrink.strIngredient6">
+        {{fetchedDrink.strMeasure6}} {{fetchedDrink.strIngredient6}}
+      </li>
+    
+      
+      <li *ngIf="fetchedDrink.strIngredient7">
+        {{fetchedDrink.strMeasure7}} {{fetchedDrink.strIngredient7}}
+      </li>
+    
+      
+      <li *ngIf="fetchedDrink.strIngredient8">
+        {{fetchedDrink.strMeasure8}} {{fetchedDrink.strIngredient8}}
+      </li>
+    
+      
+      <li *ngIf="fetchedDrink.strIngredient9">
+        {{fetchedDrink.strMeasure9}} {{fetchedDrink.strIngredient9}}
+      </li>
+    
+      
+      <li *ngIf="fetchedDrink.strIngredient10">
+        {{fetchedDrink.strMeasure10}} {{fetchedDrink.strIngredient10}}
+      </li>
+    
+      
+      <li *ngIf="fetchedDrink.strIngredient11">
+        {{fetchedDrink.strMeasure11}} {{fetchedDrink.strIngredient11}}
+      </li>
+    
+      
+      <li *ngIf="fetchedDrink.strIngredient12">
+        {{fetchedDrink.strMeasure12}} {{fetchedDrink.strIngredient12}}
+      </li>
+    
+      
+      <li *ngIf="fetchedDrink.strIngredient13">
+        {{fetchedDrink.strMeasure13}} {{fetchedDrink.strIngredient13}}
+      </li>
+    
+      
+      <li *ngIf="fetchedDrink.strIngredient14">
+        {{fetchedDrink.strMeasure14}} {{fetchedDrink.strIngredient14}}
+      </li>
+    
+     
+      <li *ngIf="fetchedDrink.strIngredient15">
+        {{fetchedDrink.strMeasure15}} {{fetchedDrink.strIngredient15}}
+      </li>
+      
+    </ul>
+    <h1>Glass Type</h1>
+    <!--Im aware this is one item im using it for formatting-->
+    <ul>
+    <li>{{fetchedDrink.strGlass}}</li>
+    </ul>
+    <h1>Instructions</h1>
+    <ul>
+      <li *ngIf="fetchedDrink.strInstructions">{{fetchedDrink.strInstructions}}</li>
+    </ul>
+
+    <ion-button expand="block" (click)="readInstructions()" *ngIf="fetchedDrink?.strInstructions"> 
+      Read Instructions
+  </ion-button>
+  </div>
+
+  <div *ngIf="!fetchedDrink">
+    <p>Loading drink details or drink not found...</p>
+  </div>
+</ion-content>
+
+
+
