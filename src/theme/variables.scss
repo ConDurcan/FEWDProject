@@ -1,2 +1,56 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+:root {
+	--ion-background-color: #6C648B;
+	--ion-background-color-rgb: 108,100,139;
+
+	--ion-text-color: #ffffff;
+	--ion-text-color-rgb: 255,255,255;
+
+    --ion-color-primary: #DAA520; 
+	--ion-color-primary-rgb: 218,165,32; 
+	--ion-color-primary-contrast: #000000; 
+	--ion-color-primary-contrast-rgb: 0,0,0;
+	--ion-color-primary-shade: #c0911c; 
+	--ion-color-primary-tint: #ddae36;
+
+	--ion-text-color-step-50: #f8f7f9;
+	--ion-text-color-step-100: #f0f0f3;
+	--ion-text-color-step-150: #e9e8ee;
+	--ion-text-color-step-200: #e2e0e8;
+	--ion-text-color-step-250: #dad8e2;
+	--ion-text-color-step-300: #d3d1dc;
+	--ion-text-color-step-350: #ccc9d6;
+	--ion-text-color-step-400: #c4c1d1;
+	--ion-text-color-step-450: #bdb9cb;
+	--ion-text-color-step-500: #b6b2c5;
+	--ion-text-color-step-550: #aeaabf;
+	--ion-text-color-step-600: #a7a2b9;
+	--ion-text-color-step-650: #9f9ab4;
+	--ion-text-color-step-700: #9893ae;
+	--ion-text-color-step-750: #918ba8;
+	--ion-text-color-step-800: #8983a2;
+	--ion-text-color-step-850: #827b9c;
+	--ion-text-color-step-900: #7b7497;
+	--ion-text-color-step-950: #736c91;
+
+	--ion-background-color-step-50: #736c91;
+	--ion-background-color-step-100: #7b7497;
+	--ion-background-color-step-150: #827b9c;
+	--ion-background-color-step-200: #8983a2;
+	--ion-background-color-step-250: #918ba8;
+	--ion-background-color-step-300: #9893ae;
+	--ion-background-color-step-350: #9f9ab4;
+	--ion-background-color-step-400: #a7a2b9;
+	--ion-background-color-step-450: #aeaabf;
+	--ion-background-color-step-500: #b6b2c5;
+	--ion-background-color-step-550: #bdb9cb;
+	--ion-background-color-step-600: #c4c1d1;
+	--ion-background-color-step-650: #ccc9d6;
+	--ion-background-color-step-700: #d3d1dc;
+	--ion-background-color-step-750: #dad8e2;
+	--ion-background-color-step-800: #e2e0e8;
+	--ion-background-color-step-850: #e9e8ee;
+	--ion-background-color-step-900: #f0f0f3;
+	--ion-background-color-step-950: #f8f7f9;
+}
